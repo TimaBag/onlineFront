@@ -1,0 +1,140 @@
+.App {
+  text-align: center;
+  font-family: 'Roboto',sans-serif;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+/* img */
+img{
+  width: 100%;
+  object-fit: cover;
+}
+/* flex */
+.flex {
+  display: flex;
+}
+.item-cnt{
+  align-items: center;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.flex-direct{
+  flex-direction: column;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+/* margin */
+.ml-1{
+  margin-left: 10px;
+}
+.mt-1{
+  margin-top: 10px;
+}
+.mt-2{
+  margin-top: 20px;
+}
+.mt-3{
+  margin-top: 30px;
+}
+/* padding */
+.p-1{
+  padding: 10px;
+}
+.p-3{
+  padding: 30px;
+}
+/* header */
+.ant-layout-header{
+  background: #fff;
+}
+.logo {
+  width: 120px;
+  height: 100%;  
+}
+.logIn_p{
+  color: #000964;
+  font-family: wrtz;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 16px;
+  font-size: 12px;
+  font-family: "Roboto";
+}
+.logIn_btn{
+  text-decoration: none;
+  color: rgb(255,0,67);
+  background: none;
+  line-height: 20px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.2px;
+  text-transform: none;
+  cursor: pointer;
+}
+.logIn_btn:hover{
+  color: #000;
+}
+.modal_login .ant-modal-footer,.modal_reg .ant-modal-footer{
+  border-top: 0;  
+  text-align: center;
+}
+.modal_login .ant-btn,.modal_reg .ant-btn{
+  width: 130px;
+  font-size: 14px;
+}
+
+/* Home */
+.home{
+  background: url(http://longwallpapers.com/Desktop-Wallpaper/mountain-wallpaper-background-For-Desktop-Wallpaper.jpg);
+  background-position: cover;
+  background-attachment: fixed;
+}
+
+.ant-card-cover > * {
+  width: 100%;
+  display: block;
+  height: 280px;
+  object-position: top;
+}
+
+.comp_logo{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+}
+
+.ant-tooltip-inner{
+  max-width: 320px;
+}
