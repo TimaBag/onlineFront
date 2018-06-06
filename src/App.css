@@ -46,6 +46,9 @@ img{
 .justify-between{
   justify-content: space-between;
 }
+.justify-center{
+  justify-content: center;
+}
 .flex-direct{
   flex-direction: column;
 }
@@ -137,4 +140,10 @@ img{
 
 .ant-tooltip-inner{
   max-width: 320px;
+}
+
+/* footer */
+.ant-layout-footer{
+  background: rgb(6, 12, 53);
+  color: #fff;
 }
