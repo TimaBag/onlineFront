@@ -31,6 +31,16 @@ p{
   margin: 0;
   padding: 0;
 }
+a{
+  color: #000;
+  text-decoration: none;
+}
+a:hover{
+  color: rgb(255,0,67);
+}
+a:focus{
+  text-decoration: none;
+}
 /* img */
 img{
   width: 100%;
@@ -40,6 +50,9 @@ img{
 .flex {
   display: flex!important;
 }
+.flex-column{
+  flex-direction: column;
+}
 .item-cnt{
   align-items: center;
 }
@@ -48,6 +61,9 @@ img{
 }
 .justify-center{
   justify-content: center;
+}
+.justify-around{
+  justify-content: space-around;
 }
 .flex-direct{
   flex-direction: column;
@@ -75,12 +91,33 @@ img{
 .mt-3{
   margin-top: 30px;
 }
+.mb-1{
+  margin-bottom: 20px;
+}
+.mb-2{
+  margin-bottom: 20px;
+}
 /* padding */
 .p-1{
   padding: 10px;
 }
 .p-3{
   padding: 30px;
+}
+.pb-2{
+  padding-bottom: 20px;
+}
+.px-0{
+  padding-right: 0!important;
+  padding-left: 0!important;
+}
+.px-3{
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.py-3{
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 /* header */
 .ant-layout-header{
@@ -94,12 +131,12 @@ img{
   color: #000964;
   font-family: wrtz;
   font-weight: bold;
-  font-style: italic;
   text-transform: uppercase;
   line-height: 16px;
   font-size: 12px;
   font-family: "Roboto";
 }
+
 .logIn_btn{
   text-decoration: none;
   color: rgb(255,0,67);
@@ -128,8 +165,10 @@ img{
 .home{
   background: #fff;
 }
-
-.ant-card-cover > * {
+.home .ant-card {
+  min-height: 480px;
+}
+.home .ant-card-cover > * {
   width: 100%;
   display: block;
   height: 280px;
@@ -137,17 +176,22 @@ img{
 }
 
 .comp_logo{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #000;
+  display: block;
+  padding: 0 10px;
+  margin: 0 auto;
+  width: 120px;
 }
 
-.ant-tooltip-inner{
+.home .ant-tooltip-inner{
   max-width: 320px;
 }
 
-.ant-carousel .slick-slide {
+.home .ant-card-meta-description{
+  height: 70px;
+  word-break: break-all;
+}
+
+.home .ant-carousel .slick-slide {
   text-align: center;
   height: 400px;
   line-height: 160px;
@@ -155,16 +199,16 @@ img{
   overflow: hidden;
 }
 
-.ant-carousel .slick-slide h3 {
+.home .ant-carousel .slick-slide h3 {
   color: #fff;
 }
 
-.ant-carousel .slick-initialized .slick-slide > div {
+.home .ant-carousel .slick-initialized .slick-slide > div {
   height: 100%;
   position: relative;
 }
 
-.overlay{
+.home .overlay{
   position: absolute;
   height: 100%;
   width: 100%;
@@ -172,7 +216,7 @@ img{
   background: rgba(0,0,0,.4);
 }
 
-.under_img{
+.home .under_img{
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -180,38 +224,35 @@ img{
   z-index: 1;
 }
 
-.under_img h1{
+.home .under_img h1{
   font-weight: 500;
   color: rgb(255,0,67);
   font-size: 60px;
   line-height: 1;
   margin : 0;
 }
-.under_img .subtitle {
+.home .under_img .subtitle {
   color: #fff;
   line-height: 32px;
 }
 
-.ant-carousel .slick-dots li button{
+.home .ant-carousel .slick-dots li button{
   background: #fff;
   opacity: 0.7;
 }
 
-.ant-carousel .slick-dots li.slick-active button{
+.home .ant-carousel .slick-dots li.slick-active button{
   background: rgb(255,0,67);
 }
-.ant-select-focused .ant-select-selection, .ant-select-selection:focus, .ant-select-selection:active{
-  border-color: rgb(255,0,67);
-  box-shadow: none;
-}
-.ant-select-selection:hover{
-  border-color: rgb(255,0,67);
-}
-.ant-select-open .ant-select-selection{
+.ant-select-focused .ant-select-selection, .ant-select-selection:focus, .ant-select-selection:active,.ant-input:hover,.ant-input:focus,.ant-select-selection:hover,
+.ant-select-open .ant-select-selection,.ant-calendar-picker:focus .ant-calendar-picker-input:not(.ant-input-disabled),.ant-calendar-picker:hover .ant-calendar-picker-input:not(.ant-input-disabled){
   border-color: rgb(255,0,67);
   box-shadow: none;
 }
 .ant-select-selection--single{
+  height: 40px;
+}
+.ant-input{
   height: 40px;
 }
 .ant-select-selection__rendered{
@@ -219,6 +260,18 @@ img{
 }
 .ant-select-selection__placeholder, .ant-select-search__field__placeholder{
   color: #000964;
+}
+.ant-rate{
+  font-size: 14px;
+}
+/* book */
+.book_btn{
+  width: 100%;
+  border-radius: 0;
+  height: 50px;
+}
+.tout_comp_list .ant-card-body{
+  padding: 0 10px;
 }
 /* footer */
 .ant-layout-footer{
