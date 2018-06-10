@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, Modal, Button, Input, Form } from 'antd';
 import Login from './Login';
 import Registration from './Registration';
@@ -61,7 +62,9 @@ class Header extends Component{
     return(
       <div className="flex justify-between item-cnt">
         <div className="logo">
-          <img src={logo} />
+          <Link to="/">
+            <img src={logo} />
+          </Link>
         </div>
         <div>
           <Menu

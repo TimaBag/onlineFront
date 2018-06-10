@@ -22,10 +22,15 @@
 .App-intro {
   font-size: large;
 }
+.ant-layout{
 
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+div{
+  position: relative;
 }
 p{
   margin: 0;
@@ -136,6 +141,15 @@ img{
   font-size: 12px;
   font-family: "Roboto";
 }
+.btn_a{
+  color: #000964;
+  font-family: wrtz;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 16px;
+  font-size: 10px;
+  font-family: "Roboto";
+}
 
 .logIn_btn{
   text-decoration: none;
@@ -208,12 +222,14 @@ img{
   position: relative;
 }
 
-.home .overlay{
+.overlay{
   position: absolute;
   height: 100%;
   width: 100%;
   z-index: 1;
   background: rgba(0,0,0,.4);
+  top: 0;
+  left: 0;
 }
 
 .home .under_img{
@@ -273,8 +289,16 @@ img{
 .tout_comp_list .ant-card-body{
   padding: 0 10px;
 }
+.info_modal{
+  width: 800px!important;
+}
 /* footer */
 .ant-layout-footer{
   background: rgb(6, 12, 53);
   color: #fff;
+}
+/* editor */
+.rdw-editor-main{
+  background: #fff;
+  margin-bottom: 10px;
 }

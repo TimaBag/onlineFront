@@ -18,7 +18,7 @@ class App extends Component{
   render(){
     return(
       <div>
-        <Layout className="layout">
+        <Layout className="layout" style={{ padding: '0 50px'}}>
           <Header><HeaderComponent/></Header>
           <Content><MainComponent/></Content>
           <Footer><FooterComponent/></Footer>

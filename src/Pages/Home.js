@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Card, Button, Rate, Tooltip, Carousel, Select, Row, Col, DatePicker, Modal } from 'antd';
+import * as actions from '../actions/placesActions';
 
 const { RangePicker } = DatePicker;
 const { Meta } = Card;
@@ -37,6 +40,10 @@ class Home extends Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.showModal = this.showModal.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.onGetPlace();
   }
 
   showModal(){
@@ -86,39 +93,56 @@ class Home extends Component {
     )
   }
 
+  renderPlace(place,index){
+    return(
+      <Col key={index} xs={24} sm={12} md={8} lg={8} xl={8} className="mb-1">
+        <Card
+          hoverable
+          cover={<img alt="example" src={place.image_url} />}
+        >
+          <Meta
+            description={place.description}
+            title={<Link to="/">{place.name}</Link>}
+          /> 
+          <div className="flex item-cnt justify-between mt-2">
+            <Link to={"/info/"+place.id} className="logIn_p" onClick={this.showModal}>ИНФОРМАЦИЯ</Link>
+            <Button type="primary"><Link to="/book">ЗАБРОНИРОВАТЬ</Link></Button>
+          </div>
+        </Card>
+      </Col>
+    )
+  }
+
   render() {
+    console.log(this.props.places)
     return (
       <div className="home">
-        <Carousel autoplay>
+        <Carousel autoplay className="mt-2">
           <div className="flex item-cnt justify-center">
             <img style={{height : 400}} alt="example" src="http://elitefon.ru/images/201211/elitefon.ru_7389.jpg" />
             <div className="overlay" />
-            <div className="under_img">
-              <h1>OnlineBooking</h1>
+            <div className="under_img"> 
               <span className="subtitle mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
             </div>
           </div>
           <div className="flex item-cnt justify-center">
             <img style={{height : 400}} alt="example" src="http://gorny-club.kz/wp-content/uploads/2017/04/2016_0101_000020_005-1150x550.jpg" />
             <div className="overlay" />
-            <div className="under_img">
-              <h1>OnlineBooking</h1>
+            <div className="under_img"> 
               <span className="subtitle mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
             </div>
           </div>
           <div className="flex item-cnt justify-center">
             <img style={{height : 400}} alt="example" src="http://elitefon.ru/images/201211/elitefon.ru_7389.jpg" />
             <div className="overlay" />
-            <div className="under_img">
-              <h1>OnlineBooking</h1>
+            <div className="under_img"> 
               <span className="subtitle mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
             </div>
           </div>
           <div className="flex item-cnt justify-center">
             <img style={{height : 400}} alt="example" src="http://gorny-club.kz/wp-content/uploads/2017/04/2016_0101_000020_005-1150x550.jpg" />
             <div className="overlay" />
-            <div className="under_img">
-              <h1>OnlineBooking</h1>
+            <div className="under_img"> 
               <span className="subtitle mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
             </div>
           </div>
@@ -158,99 +182,9 @@ class Home extends Component {
           <RangePicker onChange={this.onChange} className="ml-3" placeholder={["Начало тура","Конец тура"]} />
         </div>
         <div className="flex justify-between px-3 flex-wrap pb-2">
-          <Row gutter={24} className="mb-1">
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
-              <Card
-                hoverable
-                cover={<img alt="example" src="http://gorny-club.kz/wp-content/uploads/2017/04/2016_0101_000020_005-1150x550.jpg" />}
-              >
-                <Meta
-                  description={<p>Трудности, Путешествие, Познание себя, Преодоление и Победы над собой.Трудности, Путешествие, Познание себя, Преодоление и Победы над собой</p>}
-                  title={<a href="#">«Аксайская Кругосветка», 5 дней</a>}
-                /> 
-                <div className="flex item-cnt justify-between mt-2">
-                  <a className="logIn_p" onClick={this.showModal}>ИНФОРМАЦИЯ</a>
-                  <Button type="primary">ЗАБРОНИРОВАТЬ</Button>
-                </div>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
-              <Card
-                hoverable
-                cover={<img alt="example" src="http://elitefon.ru/images/201211/elitefon.ru_7389.jpg" />}
-              >
-                <Meta
-                  description="Трудности, Путешествие, Познание себя, Преодоление и Победы над собой"
-                  title={<a href="#">Большое Алматинское озеро</a>}
-                /> 
-                <div className="flex item-cnt justify-between mt-2">
-                  <a className="logIn_p" onClick={this.showModal}>ИНФОРМАЦИЯ</a>
-                  <Button type="primary">ЗАБРОНИРОВАТЬ</Button>
-                </div>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
-              <Card
-                hoverable
-                cover={<img alt="example" src="https://parafly.kz/wp-content/uploads/2017/07/Parafly.jpg" />}
-              >
-                <Meta
-                  description="Подарите себе и близким незабываемое приключение"
-                  title={<a href="#">Полеты на параплане в Алматы</a>}
-                /> 
-                <div className="flex item-cnt justify-between mt-2">
-                  <a className="logIn_p" onClick={this.showModal}>ИНФОРМАЦИЯ</a>
-                  <Button type="primary">ЗАБРОНИРОВАТЬ</Button>
-                </div>
-              </Card>
-            </Col>
-          </Row>
           <Row gutter={24}>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
-              <Card
-                hoverable
-                cover={<img alt="example" src="http://gorny-club.kz/wp-content/uploads/2017/04/2016_0101_000020_005-1150x550.jpg" />}
-              >
-                <Meta
-                  description="Трудности, Путешествие, Познание себя, Преодоление и Победы над собой"
-                  title={<a href="#">«Аксайская Кругосветка», 5 дней</a>}
-                /> 
-                <div className="flex item-cnt justify-between mt-2">
-                  <a className="logIn_p" onClick={this.showModal}>ИНФОРМАЦИЯ</a>
-                  <Button type="primary">ЗАБРОНИРОВАТЬ</Button>
-                </div>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
-              <Card
-                hoverable
-                cover={<img alt="example" src="http://elitefon.ru/images/201211/elitefon.ru_7389.jpg" />}
-              >
-                <Meta
-                  description="Трудности, Путешествие, Познание себя, Преодоление и Победы над собой"
-                  title={<a href="#">Большое Алматинское озеро</a>}
-                /> 
-                <div className="flex item-cnt justify-between mt-2">
-                  <a className="logIn_p" onClick={this.showModal}>ИНФОРМАЦИЯ</a>
-                  <Button type="primary">ЗАБРОНИРОВАТЬ</Button>
-                </div>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
-              <Card
-                hoverable
-                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-              >
-                <Meta
-                  description="www.instagram.com"
-                  title={<a href="#">Tour of Kazakhstan</a>}
-                /> 
-                <div className="flex item-cnt justify-between mt-2">
-                  <a className="logIn_p" onClick={this.showModal}>ИНФОРМАЦИЯ</a>
-                  <Button type="primary">ЗАБРОНИРОВАТЬ</Button>
-                </div>
-              </Card>
-            </Col>
+            {this.props.places.map((place,index) => this.renderPlace(place,index))}
+            
           </Row>
         </div>
         {this.state.visible && this.renderInfoModal()}
@@ -259,4 +193,15 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  places : state.place.placesList,
+})
+
+const mapDispatchToProps = {
+  onGetPlace : actions.getPlaces,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
